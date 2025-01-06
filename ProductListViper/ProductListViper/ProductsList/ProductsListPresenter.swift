@@ -7,29 +7,50 @@
 
 import Foundation
 
-protocol ProductsListUI: AnyObject {
-    func update(products: [ProductEntity])
+protocol ProductListPresentable: AnyObject{
+    var ui: ProductsListUI? {get}
+    var productViewModels: [ProductViewModel] {get}
+    
+    func onViewAppear()
+    func onTapCell(atIndex: Int)
+    
 }
 
-class ProductsListPresenter {
+protocol ProductsListUI: AnyObject {
+    func update(products: [ProductViewModel])
+}
+
+class ProductsListPresenter:  ProductListPresentable{
+    
+    
 //  Instancia del Interactor
-    private let productsListInteractor: ProductsListInteractor
+    private let productsListInteractor: ProductsListInteractable
 //  Referencia a la view
-    var ui: ProductsListUI?
+    weak var ui: ProductsListUI?
+    private let router: ProductsListRouting
     
-    var models: [ProductEntity] = []
+    var productViewModels: [ProductViewModel] = []
+    private var models: ProductResponseEntity = []
     
-    
-    init(productsListInteractor: ProductsListInteractor) {
+    init(router: ProductsListRouting, productsListInteractor: ProductsListInteractable) {
         self.productsListInteractor = productsListInteractor
+        self.router = router
     }
     
 //  funcion que llama al metodo del Interactor que realiza la petición http
     func onViewAppear() {
         Task {
             models = await productsListInteractor.getProductsList()
-            ui?.update(products: models)
+            productViewModels = models.map {entity in
+                ProductViewModel(productName: entity.title, productCategory: entity.category.rawValue, productPrice: String(entity.price), productImageUrl: entity.image)
+            }
+            ui?.update(products: productViewModels)
         }
+    }
+    
+    func onTapCell(atIndex: Int) {
+        let productId = models[atIndex].id
+        router.showDetailMovie(withMovieId: productId.description)
     }
     
 }

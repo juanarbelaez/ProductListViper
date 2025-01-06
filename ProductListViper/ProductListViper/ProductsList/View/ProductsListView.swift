@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import SkeletonView
 
 class ProductsListView: UIViewController {
 
     @IBOutlet weak var productsListTableView: UITableView!
     
-    var presenter: ProductsListPresenter?
+    private let presenter: ProductListPresentable
     
-    init(){
+    init(presenter: ProductListPresentable){
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,9 +26,13 @@ class ProductsListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .systemGray2
+        
         configTableView()
-        presenter?.onViewAppear()
+        
+        presenter.onViewAppear()
+        setupSkeleton()
+        
         
     }
     
@@ -36,39 +42,60 @@ class ProductsListView: UIViewController {
         productsListTableView.register(nibProduct, forCellReuseIdentifier: "\(ProductCell.self)")
         
         productsListTableView.dataSource = self
+        productsListTableView.delegate = self
     }
+    
+    func setupSkeleton(){
+        productsListTableView.isSkeletonable = true
+        
+        productsListTableView.showAnimatedGradientSkeleton()
+        
+        
+        
+//        productImage.isSkeletonable = true
+//        productName.isSkeletonable = true
+//        productPrice.isSkeletonable = true
+//        productCategory.isSkeletonable = true
+//        productDescription.isSkeletonable = true
+//
+//        productImage.showAnimatedGradientSkeleton()
+//        productName.showAnimatedGradientSkeleton()
+//        productPrice.showAnimatedGradientSkeleton()
+//        productCategory.showAnimatedGradientSkeleton()
+//        productDescription.showAnimatedGradientSkeleton()
 
-
- 
-
+        
+        
+    }
 }
 
 
 extension ProductsListView: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter!.models.count
+        return presenter.productViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(ProductCell.self)", for: indexPath) as! ProductCell
-        let model = presenter!.models[indexPath.row]
+        let model = presenter.productViewModels[indexPath.row]
         cell.configure(model: model)
         return cell
     }
-    
-    
 }
 
 
 extension ProductsListView: ProductsListUI {
-    func update(products: [ProductEntity]) {
-        print("Datos recibidos", products)
+    func update(products: [ProductViewModel]) {
+//        print("Datos recibidos", products)
         DispatchQueue.main.async {
+            self.productsListTableView.hideSkeleton()
             self.productsListTableView.reloadData()
         }
     }
-    
-    
-    
-    
+}
+
+extension ProductsListView: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.onTapCell(atIndex: indexPath.row)
+    }
 }

@@ -25,7 +25,7 @@ struct RequestModel {
     
     enum Endpoints: String{
         case products = "/products"
-        case productDetail = "/products/id"
+        case productDetail = "/products/"
         case empty = ""
     }
     

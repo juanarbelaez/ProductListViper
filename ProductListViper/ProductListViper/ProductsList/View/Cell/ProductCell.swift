@@ -25,12 +25,12 @@ class ProductCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(model: ProductEntity){
+    func configure(model: ProductViewModel){
         
-        productImage.kf.setImage(with: URL(string: model.image))
-        productName.text = model.title
-        productCategory.text = model.category.rawValue
-        productPrice.text = String(model.price)
+        productImage.kf.setImage(with: URL(string: model.productImageUrl))
+        productName.text = model.productName
+        productCategory.text = model.productCategory
+        productPrice.text = String(model.productPrice)
     }
     
 }

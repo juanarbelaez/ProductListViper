@@ -1,18 +1,18 @@
 //
-//  ProductEntity.swift
+//  ProductDetailEntity.swift
 //  ProductListViper
 //
-//  Created by Juan Arbelaez on 20/12/24.
+//  Created by Juan Arbelaez on 24/12/24.
 //
 
 import Foundation
 
-struct ProductEntity: Decodable {
-    
+struct ProductDetailEntity: Decodable {
     let id: Int
     let title: String
     let price: Double
     let category: Category
+    let description: String
     let image: String
     
     enum Category: String, Decodable {
@@ -22,7 +22,3 @@ struct ProductEntity: Decodable {
         case womenSClothing = "women's clothing"
     }
 }
-
-
-typealias ProductResponseEntity = [ProductEntity]
-

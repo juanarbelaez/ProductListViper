@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,25 +20,57 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Productos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VW-fQ-W5e">
+                    <rect key="frame" x="16" y="59" width="361" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="ij4-dV-Lw5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gjb-GM-o7u">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <rect key="frame" x="0.0" y="107" width="393" height="711"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXs-dM-T3r">
+                    <rect key="frame" x="313" y="748" width="64" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="GhU-4T-0Uv"/>
+                        <constraint firstAttribute="width" constant="64" id="oD8-yF-70v"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule" buttonSize="large">
+                        <imageReference key="image" image="plus" catalog="system" symbolScale="large" variableValue="0.60000000000000009"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                        <color key="baseBackgroundColor" systemColor="systemGrayColor"/>
+                    </buttonConfiguration>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Gjb-GM-o7u" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="1hD-FY-lha"/>
+                <constraint firstItem="2VW-fQ-W5e" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="3Kg-Gl-yGI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VXs-dM-T3r" secondAttribute="bottom" constant="6" id="K60-d8-Wky"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gjb-GM-o7u" secondAttribute="trailing" id="Myb-gq-Bdc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Gjb-GM-o7u" secondAttribute="bottom" id="N4F-zq-GQn"/>
                 <constraint firstItem="Gjb-GM-o7u" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="a2y-9n-mel"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2VW-fQ-W5e" secondAttribute="trailing" constant="16" id="am6-hx-nbl"/>
+                <constraint firstItem="Gjb-GM-o7u" firstAttribute="top" secondItem="2VW-fQ-W5e" secondAttribute="bottom" id="rXN-hp-8sX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VXs-dM-T3r" secondAttribute="trailing" constant="16" id="wEe-4o-QVb"/>
+                <constraint firstItem="2VW-fQ-W5e" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="xu8-5i-8KA"/>
             </constraints>
-            <point key="canvasLocation" x="13" y="-11"/>
+            <point key="canvasLocation" x="12.977099236641221" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
