@@ -17,28 +17,30 @@ protocol ProductDetailPresentable: AnyObject {
     var productId: String {get}
     
     func onViewAppear()
+    func onTapEdit()
 }
 
 class ProductDetailPresenter: ProductDetailPresentable {
     
+    
+    
     let productId: String
     private let productDetailInteractor: ProductDetailInteractor
-    
     weak var ui: ProductDetailUI?
+    private let router: ProductDetailRouting
     
     var productDetail: ProductDetailEntity = ProductDetailEntity(id: 0, title: "", price: 0.0, category: ProductDetailEntity.Category.menSClothing, description: "", image: "")
     
     
-    init(productId: String, productDetailInteractor: ProductDetailInteractor) {
+    init(productId: String, router: ProductDetailRouting, productDetailInteractor: ProductDetailInteractor) {
         self.productDetailInteractor = productDetailInteractor
         self.productId = productId
+        self.router = router
     }
-    
     
     func onViewAppear() {
         Task{
             
-           
             productDetail = await productDetailInteractor.getProductDetail(whitId: productId)
             await MainActor.run{
                 self.ui?.update(productDetail: productDetail)
@@ -47,4 +49,7 @@ class ProductDetailPresenter: ProductDetailPresentable {
         
     }
     
+    func onTapEdit() {
+        router.showEditDetails(withProductModel: productDetail)
+    }
 }

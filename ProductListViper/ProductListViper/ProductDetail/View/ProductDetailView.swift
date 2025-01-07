@@ -70,8 +70,7 @@ class ProductDetailView: UIViewController {
     }
 
     @IBAction func onTapEdit(_ sender: Any) {
-        
-        
+        presenter.onTapEdit()
     }
     
 }

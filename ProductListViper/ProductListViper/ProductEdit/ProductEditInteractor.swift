@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+protocol ProductEditInteractable: AnyObject {
+    
+    
+}
+
+class ProductEditInteractor: ProductEditInteractable {
+    
+}
