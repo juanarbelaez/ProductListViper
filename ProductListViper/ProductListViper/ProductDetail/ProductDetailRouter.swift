@@ -23,6 +23,7 @@ class ProductDetailRouter: ProductDetailRouting {
     var productDetailView: ProductDetailView?
    
     func showDetails(fromViewController: UIViewController, withProductId productId: String){
+        self.productEditRouter = ProductEditRouter()
         let productDetailInteractor = ProductDetailInteractor()
         let productDetailPresenter = ProductDetailPresenter(productId: productId, router: self, productDetailInteractor: productDetailInteractor)
         productDetailView = ProductDetailView(presenter: productDetailPresenter)
@@ -35,7 +36,6 @@ class ProductDetailRouter: ProductDetailRouting {
         guard let fromViewController = productDetailView else {
             return
         }
-        
         productEditRouter?.showEditDetails(fromViewController: fromViewController, withProduct: product)
         
     }

@@ -18,16 +18,15 @@ class ProductEditRouter: ProductEditRouting {
     
     var productEditView: ProductEditView?
     
-//    Arreglar problema = 
+//    Arreglar problema = No presenta la vista de Edición
     
     
     func showEditDetails(fromViewController: UIViewController, withProduct product: ProductDetailEntity) {
-        
         let productEditInteractor = ProductEditInteractor()
         let productEditPresenter = ProductEditPresenter(productToEdit: product, router: self, productEditInteractor: productEditInteractor)
         productEditView = ProductEditView(presenter: productEditPresenter)
         productEditPresenter.ui = productEditView
-        
+    
         fromViewController.present(productEditView!, animated: true)
     }
     

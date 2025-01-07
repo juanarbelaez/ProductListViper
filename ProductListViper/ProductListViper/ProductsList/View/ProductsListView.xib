@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Productos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VW-fQ-W5e">
-                    <rect key="frame" x="16" y="59" width="361" height="48"/>
+                    <rect key="frame" x="16" y="0.0" width="361" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="ij4-dV-Lw5"/>
                     </constraints>
@@ -30,11 +30,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gjb-GM-o7u">
-                    <rect key="frame" x="0.0" y="107" width="393" height="711"/>
+                    <rect key="frame" x="0.0" y="48" width="393" height="804"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXs-dM-T3r">
-                    <rect key="frame" x="313" y="748" width="64" height="64"/>
+                    <rect key="frame" x="313" y="782" width="64" height="64"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="GhU-4T-0Uv"/>
                         <constraint firstAttribute="width" constant="64" id="oD8-yF-70v"/>
@@ -46,6 +46,9 @@
                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                         <color key="baseBackgroundColor" systemColor="systemGrayColor"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="onTapNew:" destination="-1" eventType="touchUpInside" id="ITC-Mf-gIz"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

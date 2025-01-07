@@ -16,8 +16,11 @@ class ProductEditView: UIViewController {
     
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productName: UITextField!
-    @IBOutlet weak var productCategoryMenu: UIButton!
+  
+   
     @IBOutlet weak var productDescription: UITextView!
+   
+    
     @IBOutlet weak var productPrice: UITextField!
     
     private let presenter: ProductEditPresentable

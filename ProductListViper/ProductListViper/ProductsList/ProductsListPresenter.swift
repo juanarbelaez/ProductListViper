@@ -13,6 +13,7 @@ protocol ProductListPresentable: AnyObject{
     
     func onViewAppear()
     func onTapCell(atIndex: Int)
+    func onTapNew()
     
 }
 
@@ -21,6 +22,8 @@ protocol ProductsListUI: AnyObject {
 }
 
 class ProductsListPresenter:  ProductListPresentable{
+    
+    
     
     
 //  Instancia del Interactor
@@ -51,6 +54,10 @@ class ProductsListPresenter:  ProductListPresentable{
     func onTapCell(atIndex: Int) {
         let productId = models[atIndex].id
         router.showDetailMovie(withMovieId: productId.description)
+    }
+    
+    func onTapNew() {
+        router.showNewProduct()
     }
     
 }

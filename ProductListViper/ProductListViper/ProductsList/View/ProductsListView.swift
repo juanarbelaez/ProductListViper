@@ -67,6 +67,14 @@ class ProductsListView: UIViewController {
         
         
     }
+    
+    @IBAction func onTapNew(_ sender: Any) {
+        
+        presenter.onTapNew()
+    }
+    
+    
+    
 }
 
 
