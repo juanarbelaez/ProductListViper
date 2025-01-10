@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5986DCF0F3C97EB0C15033F7 /* Pods_ProductListViper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A7A7B3E3B49A8B3D0FFAF8 /* Pods_ProductListViper.framework */; };
+		D847E2BE2D2DED860065C419 /* NewProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D847E2BD2D2DED860065C419 /* NewProductEntity.swift */; };
 		D84DCD5B2D1B0D0100906852 /* ProductDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84DCD5A2D1B0D0100906852 /* ProductDetailEntity.swift */; };
 		D84DCD612D1B34A300906852 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84DCD5F2D1B34A300906852 /* ProductDetailView.swift */; };
 		D84DCD622D1B34A300906852 /* ProductDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84DCD602D1B34A300906852 /* ProductDetailView.xib */; };
@@ -46,6 +47,7 @@
 		11A7A7B3E3B49A8B3D0FFAF8 /* Pods_ProductListViper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProductListViper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		131BD98663AEEF569B9BD3A7 /* Pods-ProductListViper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductListViper.release.xcconfig"; path = "Target Support Files/Pods-ProductListViper/Pods-ProductListViper.release.xcconfig"; sourceTree = "<group>"; };
 		25F923A92BB045E545C49BDE /* Pods-ProductListViper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductListViper.debug.xcconfig"; path = "Target Support Files/Pods-ProductListViper/Pods-ProductListViper.debug.xcconfig"; sourceTree = "<group>"; };
+		D847E2BD2D2DED860065C419 /* NewProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductEntity.swift; sourceTree = "<group>"; };
 		D84DCD5A2D1B0D0100906852 /* ProductDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailEntity.swift; sourceTree = "<group>"; };
 		D84DCD5F2D1B34A300906852 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		D84DCD602D1B34A300906852 /* ProductDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailView.xib; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 		D8809FF82D2DB954009BA1C7 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				D847E2BD2D2DED860065C419 /* NewProductEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				D875F1BC2D2C30E0000087C8 /* ProductEditPresenter.swift in Sources */,
 				D8809FF02D2DB90F009BA1C7 /* NewProductView.swift in Sources */,
 				D85F658D2D1A6B7E00193A1F /* ProductDetailInteractor.swift in Sources */,
+				D847E2BE2D2DED860065C419 /* NewProductEntity.swift in Sources */,
 				D84DCD612D1B34A300906852 /* ProductDetailView.swift in Sources */,
 				D87AB16C2D1731C700A6F18D /* ProductCell.swift in Sources */,
 				D893BC092D16229500D7F827 /* ProductsListInteractor.swift in Sources */,

@@ -19,11 +19,13 @@ class ProductEditView: UIViewController {
   
    
     @IBOutlet weak var productDescription: UITextView!
-   
+    @IBOutlet weak var categoryMenuButton: UIButton!
+    
     
     @IBOutlet weak var productPrice: UITextField!
     
     private let presenter: ProductEditPresentable
+    var category: String = ""
     
     init(presenter: ProductEditPresentable){
         self.presenter = presenter
@@ -36,6 +38,20 @@ class ProductEditView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let electronics = UIAction(title: "electronics") { action  in
+            self.category = "electronics"
+        }
+        let jewelery = UIAction(title: "jewelery") { action  in
+            self.category = "jewelery"
+        }
+        let mensClothing = UIAction(title: "men's clothing") { action  in
+            self.category = "men's clothing"
+        }
+        let womenClothing = UIAction(title: "women's clothing") { action  in
+            self.category = "women's clothing"
+        }
+        categoryMenuButton.menu = UIMenu(children: [electronics, jewelery, mensClothing, womenClothing])
         
         presenter.onViewAppear()
         
@@ -50,6 +66,7 @@ extension ProductEditView: ProductEditUI {
         productName.text = productToEdit.title
         productDescription.text = productToEdit.description
         productPrice.text = String(productToEdit.price)
+        
         
     }
 }

@@ -21,6 +21,12 @@ class NewProductRouter: NewProductRouting{
     
     func showNew(fromViewController: UIViewController){
         
+        let newProductInteractor = NewProductInteractor()
+        let newProductPresenter = NewProductPresenter(newProductDetailInteractor: newProductInteractor, router: self)
+        newProductView = NewProductView(presenter: newProductPresenter)
+        newProductPresenter.ui = newProductView
+        
         fromViewController.present(newProductView!, animated: true)
+        
     }
 }

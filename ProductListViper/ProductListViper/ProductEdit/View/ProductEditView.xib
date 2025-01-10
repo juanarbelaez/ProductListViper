@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductEditView" customModule="ProductListViper" customModuleProvider="target">
             <connections>
+                <outlet property="categoryMenuButton" destination="EWk-wf-fxV" id="HNK-ae-0JE"/>
                 <outlet property="productDescription" destination="3FL-fd-c0s" id="Rcz-A3-7D3"/>
                 <outlet property="productImage" destination="iLA-T6-ean" id="8Iv-7R-ubx"/>
                 <outlet property="productName" destination="m9g-a0-vaY" id="y0J-La-gnt"/>
