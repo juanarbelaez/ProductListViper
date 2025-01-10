@@ -16,6 +16,7 @@ class NewProductView: UIViewController {
     
     private let presenter : NewProductPresentable
     var category: String = ""
+//    var productDictionary : [String:Any] = [:]
     
     init(presenter: NewProductPresentable) {
         self.presenter = presenter
@@ -44,13 +45,21 @@ class NewProductView: UIViewController {
     }
 
     @IBAction func onTapSave(_ sender: Any) {
-        
+        let productDictionary : [String:AnyHashable] = [
+            "title":productName.text!,
+            "price": Double(productPrice.text!)!,
+            "description":productDescription.text!,
+            "image":"http://i.pravatar.cc",
+            "category":category]
+
+        presenter.onTapNew(productDictionary: productDictionary)
     }
 }
 
 extension NewProductView: NewProductUI {
     
-    
-//    Capto la info del producto nuevo
-    
+    func update(){
+        self.dismiss(animated: true)
+        
+    }
 }

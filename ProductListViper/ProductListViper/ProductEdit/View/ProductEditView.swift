@@ -16,12 +16,8 @@ class ProductEditView: UIViewController {
     
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productName: UITextField!
-  
-   
     @IBOutlet weak var productDescription: UITextView!
     @IBOutlet weak var categoryMenuButton: UIButton!
-    
-    
     @IBOutlet weak var productPrice: UITextField!
     
     private let presenter: ProductEditPresentable
@@ -56,17 +52,31 @@ class ProductEditView: UIViewController {
         presenter.onViewAppear()
         
     }
+    
+    @IBAction func onTapSave(_ sender: Any) {
+        
+        let productDictionary : [String:AnyHashable] = [
+            "title":productName.text!,
+            "price": Double(productPrice.text!)!,
+            "description":productDescription.text!,
+            "image":"http://i.pravatar.cc",
+            "category":category]
 
+            presenter.onTapSave(productDictionary: productDictionary)
+        
+    }
 }
 
 extension ProductEditView: ProductEditUI {
+    func dismissEditView() {
+        self.dismiss(animated: true)
+    }
+
     func update(productToEdit: ProductDetailEntity) {
         
         productImage.kf.setImage(with: URL(string: productToEdit.image))
         productName.text = productToEdit.title
         productDescription.text = productToEdit.description
         productPrice.text = String(productToEdit.price)
-        
-        
     }
 }

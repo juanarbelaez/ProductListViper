@@ -11,6 +11,7 @@ import Foundation
 protocol ProductEditUI: AnyObject {
     
     func update(productToEdit: ProductDetailEntity)
+    func dismissEditView()
 }
 
 protocol ProductEditPresentable: AnyObject {
@@ -19,6 +20,7 @@ protocol ProductEditPresentable: AnyObject {
     var productToEdit: ProductDetailEntity {get}
     
     func onViewAppear ()
+    func onTapSave (productDictionary : [String:AnyHashable])
         
 }
 
@@ -39,6 +41,13 @@ class ProductEditPresenter: ProductEditPresentable {
     func onViewAppear() {
         
         self.ui?.update(productToEdit: productToEdit)
-        
     }
+    
+    func onTapSave (productDictionary : [String:AnyHashable]){
+        
+        productEditInteractor.setNewProduct(productDictionary: productDictionary)
+        self.ui?.dismissEditView()
+    }
+    
+    
 }

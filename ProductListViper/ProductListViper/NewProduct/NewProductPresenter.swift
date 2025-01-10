@@ -8,30 +8,34 @@
 import Foundation
 
 protocol NewProductUI: AnyObject {
-    
+    func update()
 }
 
 protocol NewProductPresentable: AnyObject {
     
     var ui: NewProductUI? { get }
     
-    func onTapNew ()
+    func onTapNew (productDictionary : [String:AnyHashable])
 }
 
 
 class NewProductPresenter: NewProductPresentable {
     
     weak var ui: NewProductUI?
-    private let newProductDetailInteractor: NewProductInteractor
+    private let newProductInteractor: NewProductInteractor
     private let router: NewProductRouting
     
-    init(newProductDetailInteractor: NewProductInteractor, router: NewProductRouting) {
-        self.newProductDetailInteractor = newProductDetailInteractor
+    init(newProductInteractor: NewProductInteractor, router: NewProductRouting) {
+        self.newProductInteractor = newProductInteractor
         self.router = router
     }
 
-    func onTapNew() {
+    func onTapNew(productDictionary : [String:AnyHashable]) {
+        
 //        Comunicar a Interactor el Model a Crear
+        newProductInteractor.setNewProduct(productDictionary: productDictionary)
+        self.ui?.update()
+        
     }
     
     
